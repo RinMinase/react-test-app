@@ -8,10 +8,22 @@ module.exports = {
 		filename: "index_bundle.js"
 	},
 	module: {
-		rules: [
-			{ test: /\.(js)$/, use: "babel-loader" },
-			{ test: /\.scss$/, use: [ "style-loader", "css-loader", "sass-loader" ] }
-		]
+		rules: [{
+			test: /\.(js)$/, 
+			use: "babel-loader" 
+		}, {
+			test: /\.scss$/, 
+			loader: [ "style-loader", {
+				loader: "css-loader",
+				options: {
+					modules: true,
+					sourceMap: true,
+				}
+			}, {
+				loader: "sass-loader",
+				options: { sourceMap: true }
+			}]
+		}]
 	},
 	mode: "development",
 	devServer: {
