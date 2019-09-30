@@ -25,13 +25,7 @@ module.exports = {
 			assets: true,
 			chunks: false,
 			modules: false,
-			reasons: false,
-			children: false,
-			source: false,
-			errors: true,
-			errorDetails: false,
-			warnings: true,
-			publicPath: false
+			children: false
 		}
 	},
 	plugins: [
