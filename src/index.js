@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+import css from "./index.scss";
 
 class App extends React.Component {
 	render () {
 		return(
-			<div className="test">Hello World!</div>
+			<div className={css.test}>Hello World!</div>
 		);
 	}
 }
