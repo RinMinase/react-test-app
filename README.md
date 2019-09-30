@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center"> React Test Application </h1>
 
-## Available Scripts
+## Introduction
+Manually created without using `create-react-app`.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Running the project
+1. [Download](https://nodejs.org/en/) the latest Node version. This is marked as `<version number> Current`. Install it on your machine.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. _(Optional)_ [Download](https://yarnpkg.com/latest.msi) Yarn. This is a faster package manager than the default `npm` one.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+3. Clone the project
 
-### `npm test`
+    ```
+    git clone https://github.com/RinMinase/anidb.git
+    cd anidb
+    ```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Install the dependencies then run the project
 
-### `npm run build`
+    ```
+    npm install
+    npm start
+    ```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    **Note:** If you have installed Yarn, run these instead:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    ```
+    yarn install
+    yarn start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Fire up your browser and go to `localhost:3000`
 
-### `npm run eject`
+### Project Structure
+    .
+    ├── assets/                    # Project assets
+    ├── src/                       # Project source code
+    └── webpack.config.js          # Webpack configuration file
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Building the project
+Installations Required:
+- Node
+- _(Optional)_ Yarn
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Fire up your terminal inside the project folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Build the project by running:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    ```
+    npm run build
+    ```
 
-## Learn More
+    **Note:** If you have installed Yarn, run these instead:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```
+    yarn build
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. This should generate a `/dist` folder inside the project folder.
 
-### Code Splitting
+### Project tasks
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Task automation is based on [Yarn scripts](https://yarnpkg.com/lang/en/docs/cli/run/) or [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-### Analyzing the Bundle Size
+| Task                | Description                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| `yarn start`        | Run **development server** on `http://localhost:3000/` with file watching on changes   |
+| `yarn build`        | Build production code                                                                  |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Built with
+* <img width=20 height=20 src="https://reactjs.org/favicon.ico"> [React 16](https://reactjs.org/) - Web Framework
+* <img width=20 height=20 src="https://babeljs.io/img/favicon.png"> [Babel ES9 / ES2018 Preset](https://babeljs.io/) - Syntax and compiler
+* <img width=20 height=20 src="https://sass-lang.com/favicon.ico"> [Sassy CSS (SCSS)](https://sass-lang.com/) - CSS pre-processor
+* <img width=20 height=20 src="https://webpack.js.org/bc3effb418df77da9e04825c48a58a49.ico"> [Webpack 4](https://webpack.js.org/) - Project bundler
+* <img width=20 height=20 src="https://yarnpkg.com/favicon.ico"> [Yarn](https://yarnpkg.com/) - Package Manager
