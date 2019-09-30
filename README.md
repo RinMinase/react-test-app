@@ -1,7 +1,7 @@
-<h1 align="center"> React Test Application </h1>
+<h1 align="center"> ReactJS Test Application </h1>
 
 ## Introduction
-Manually created without using `create-react-app`.
+A lightweight ReactJS application created without using `create-react-app`.
 
 ## Getting Started
 
