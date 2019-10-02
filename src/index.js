@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import css from "./index.scss";
 
-class App extends React.Component {
+import css from "./index.scss";
+import Routes from "./routes";
+
+export default class App extends React.Component {
 	render () {
 		return(
 			<div className={css.test}>Hello World!</div>
@@ -10,4 +12,4 @@ class App extends React.Component {
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Routes />, document.getElementById('app'));
