@@ -1,19 +1,16 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './';
-import Home from './home';
-import Login from './login';
 
 const routes = [{
 	path: "/home",
-	component: Home,
+	component: "./home",
 }, {
 	path: "/login",
-	component: Login,
+	component: "./login",
 }];
-
 
 export default function Routes() {
 	return(
@@ -28,6 +25,12 @@ export default function Routes() {
 
 const DynamicRoute = (route) => {
 	if (!route.path && !route.component) return null;
+	
+	const Component = lazy(() => import(`${route.component}/`))
 
-	return(<Route path={route.path} component={route.component} />);
+	return(
+		<Route path={route.path} component={Component}>
+			<Component></Component>
+		</Route>
+	);
 }
