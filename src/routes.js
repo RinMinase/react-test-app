@@ -27,8 +27,5 @@ export default function Routes() {
 }
 
 const DynamicRoute = (route) => {
-	console.log(route);
-	return(
-		<Route path={route.path} component={ route.component } />
-	);
+	return(<Route path={route.path} component={ route.component } />);
 }
