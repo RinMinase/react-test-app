@@ -9,10 +9,10 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-			test: /\.(js)$/, 
-			use: "babel-loader" 
+			test: /\.(js)$/,
+			use: "babel-loader"
 		}, {
-			test: /\.scss$/, 
+			test: /\.scss$/,
 			loader: [ "style-loader", {
 				loader: "css-loader",
 				options: {
@@ -29,6 +29,7 @@ module.exports = {
 	devServer: {
 		open: false,
 		port: 3000,
+		historyApiFallback: true,
 		stats: {
 			colors: true,
 			hash: false,
