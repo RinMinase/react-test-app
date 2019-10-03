@@ -27,5 +27,7 @@ export default function Routes() {
 }
 
 const DynamicRoute = (route) => {
-	return(<Route path={route.path} component={ route.component } />);
+	if (!route.path && !route.component) return null;
+
+	return(<Route path={route.path} component={route.component} />);
 }
