@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MenuIcon from "@material-ui/icons/Menu"
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -25,8 +26,10 @@ export default function Nav() {
 					<IconButton edge="start" color="inherit" className={classes.menuButton}>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" className={classes.title}>News</Typography>
-					<Button color="inherit">Login</Button>
+					<Typography variant="h6" className={classes.title}>React Test App</Typography>
+
+					<Link to="/home"><Button>Home</Button></Link>
+					<Link to="/login"><Button>Login</Button></Link>
 				</Toolbar>
 			</AppBar>
 		</div>
