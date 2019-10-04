@@ -15,7 +15,7 @@ const routes = [{
 export default function Routes() {
 	return(
 		<Router history={createBrowserHistory()}>
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<div className="spinner round"></div>}>
 				<App routes={routes} />
 			</Suspense>
 		</Router>
