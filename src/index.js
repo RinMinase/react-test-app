@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Navbar from "./core/navbar";
 import Routes from "./routes";
 
-import "./index.scss";
+import "./global.scss";
 
 export default class App extends Component {
 
