@@ -29,14 +29,8 @@ export default class App extends Component {
 	}
 }
 
-class Container extends Component {
-
-	constructor(props) { super(props); }
-
-	render() {
-		return this.props.routes.map((route) => <DynamicRoute key={route.path} { ...route }/>);
-	}
-
+function Container(props) {
+	return props.routes.map((route) => <DynamicRoute key={route.path} { ...route }/>);
 }
 
 function DynamicRoute(route) {
@@ -46,6 +40,5 @@ function DynamicRoute(route) {
 
 	return(<Route path={route.path} component={Component} />);
 }
-
 
 ReactDOM.render(<Routes />, document.getElementById('app'));
