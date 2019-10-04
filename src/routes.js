@@ -1,9 +1,8 @@
-import React, { Suspense, lazy } from "react";
-import { Router, Route } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './';
-import css from "./index.scss";
 
 const routes = [{
 	path: "/home",
@@ -17,19 +16,8 @@ export default function Routes() {
 	return(
 		<Router history={createBrowserHistory()}>
 			<Suspense fallback={<div>Loading...</div>}>
-				<App />
-				<div className={css.container}>
-					{ routes.map((route) => <DynamicRoute key={route.path} { ...route }/>) }
-				</div>
+				<App routes={routes} />
 			</Suspense>
 		</Router>
 	)
-}
-
-function DynamicRoute(route) {
-	if (!route.path && !route.component) return null;
-
-	const Component = lazy(() => import(`${route.component}/`));
-
-	return(<Route path={route.path} component={Component} />);
 }
