@@ -25,12 +25,8 @@ export default function Routes() {
 
 const DynamicRoute = (route) => {
 	if (!route.path && !route.component) return null;
-	
+
 	const Component = lazy(() => import(`${route.component}/`))
 
-	return(
-		<Route path={route.path} component={Component}>
-			<Component></Component>
-		</Route>
-	);
+	return(<Route path={route.path} component={Component} />);
 }
