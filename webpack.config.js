@@ -12,8 +12,8 @@ module.exports = {
 			test: /\.(js)$/,
 			use: "babel-loader"
 		}, {
-			/** This applies to scss in modules named `styles.scss` */
-			test: /style\.scss$/,
+			/** This applies to all scss except `global.scss` */
+			test: /^(?!global\.scss).+$/,
 			loader: [ "style-loader", {
 				loader: "css-loader",
 				options: {
@@ -25,8 +25,8 @@ module.exports = {
 				options: { sourceMap: true }
 			}]
 		}, {
-			/** This applies to the main stylesheet named `index.scss` */
-			test: /index\.scss$/,
+			/** This applies to the main stylesheet named `global.scss` */
+			test: /global\.scss$/,
 			loader: [ "style-loader", {
 				loader: "css-loader",
 				options: { sourceMap: true }
