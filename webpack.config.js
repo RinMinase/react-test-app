@@ -12,13 +12,22 @@ module.exports = {
 			test: /\.(js)$/,
 			use: "babel-loader"
 		}, {
-			test: /\.scss$/,
+			test: /style\.scss$/,
 			loader: [ "style-loader", {
 				loader: "css-loader",
 				options: {
 					modules: true,
 					sourceMap: true,
 				}
+			}, {
+				loader: "sass-loader",
+				options: { sourceMap: true }
+			}]
+		}, {
+			test: /index\.scss$/,
+			loader: [ "style-loader", {
+				loader: "css-loader",
+				options: { sourceMap: true }
 			}, {
 				loader: "sass-loader",
 				options: { sourceMap: true }
