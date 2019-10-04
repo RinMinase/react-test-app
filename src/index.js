@@ -1,6 +1,6 @@
 import React, { Component, lazy } from "react";
 import ReactDOM from "react-dom";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Navbar from "./core/navbar";
 import Routes from "./routes";
@@ -15,14 +15,6 @@ export default class App extends Component {
 		return(
 			<div>
 				<Navbar />
-				<div className="container">
-					<p>Hello World!</p>
-					<div className="spinner round"></div>
-					<ul>
-						<li><Link to="/home">Home</Link></li>
-						<li><Link to="/login">Login</Link></li>
-					</ul>
-				</div>
 				<div className="container">
 					<Container routes={this.props.routes} />
 				</div>
