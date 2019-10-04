@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import Nav from "./Nav"
 
 export default class Navbar extends Component {
 	render () {
-		return(<div>Navbar Component loaded!</div>);
+		return(<Nav />)
 	}
 }
