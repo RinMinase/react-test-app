@@ -3,6 +3,7 @@ import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './';
+import css from "./index.scss";
 
 const routes = [{
 	path: "/home",
@@ -17,7 +18,9 @@ export default function Routes() {
 		<Router history={createBrowserHistory()}>
 			<Suspense fallback={<div>Loading...</div>}>
 				<App />
-				{ routes.map((route) => <DynamicRoute key={route.path} { ...route }/>) }
+				<div className={css.container}>
+					{ routes.map((route) => <DynamicRoute key={route.path} { ...route }/>) }
+				</div>
 			</Suspense>
 		</Router>
 	)
@@ -26,7 +29,7 @@ export default function Routes() {
 const DynamicRoute = (route) => {
 	if (!route.path && !route.component) return null;
 
-	const Component = lazy(() => import(`${route.component}/`))
+	const Component = lazy(() => import(`${route.component}/`));
 
 	return(<Route path={route.path} component={Component} />);
 }

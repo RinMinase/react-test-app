@@ -11,7 +11,7 @@ export default class App extends Component {
 		return(
 			<div>
 				<Navbar />
-				<div className="container">
+				<div className={css.container}>
 					<p className={css.test}>Hello World!</p>
 					<ul>
 						<li><Link to="/home">Home</Link></li>
