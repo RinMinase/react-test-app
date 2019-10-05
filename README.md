@@ -45,6 +45,16 @@ A lightweight ReactJS application created without using `create-react-app`.
     │   └── routes.js              # Route definitions
     └── webpack.config.js          # Webpack configuration file
 
+#### Display Structure
+     ___________________
+    |  _______________  | <App />
+    | |_______________| |  ├─ <Nav />
+    |  _______________  |  │
+    | |               | |  └─ <Container />
+    | |               | |      └─ <Route />
+    | |_______________| |
+    |___________________|
+
 ### Building the project
 Installations Required:
 - Node
