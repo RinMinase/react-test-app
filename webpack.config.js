@@ -13,7 +13,7 @@ module.exports = {
 			use: "babel-loader"
 		}, {
 			/** This applies to all scss except `global.scss` */
-			test: /^(?!global\.scss).+$/,
+			test: /^((?!global).)*scss$/,
 			loader: [ "style-loader", {
 				loader: "css-loader",
 				options: {
