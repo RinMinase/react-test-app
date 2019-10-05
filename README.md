@@ -37,6 +37,12 @@ A lightweight ReactJS application created without using `create-react-app`.
     .
     ├── assets/                    # Project assets
     ├── src/                       # Project source code
+    │   ├── core/                  # Core and reusable components
+    │   ├── <component>/           # Project component
+    │   ├── global.scss            # Main stylesheet
+    │   ├── index.html             # Main template file
+    │   ├── index.js               # Main scripts
+    │   └── routes.js              # Route definitions
     └── webpack.config.js          # Webpack configuration file
 
 ### Building the project
