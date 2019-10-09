@@ -16,30 +16,7 @@ module.exports = (_env, arg) => {
 				test: /\.(js)$/,
 				loader: "babel-loader",
 				query: { compact: false }
-			}, {
-				/** This applies to all scss except `global.scss` */
-				test: /^((?!global).)*scss$/,
-				loader: [ "style-loader", {
-					loader: "css-loader",
-					options: {
-						modules: true,
-						sourceMap: true,
-					}
-				}, {
-					loader: "sass-loader",
-					options: { sourceMap: true }
-				}]
-			}, {
-				/** This applies to the main stylesheet named `global.scss` */
-				test: /global\.scss$/,
-				loader: [ "style-loader", {
-					loader: "css-loader",
-					options: { sourceMap: true }
-				}, {
-					loader: "sass-loader",
-					options: { sourceMap: true }
-				}]
-			}]
+			}, configureChildStyles(), configureMainStyles()]
 		},
 		mode: "development",
 		devServer: {
@@ -49,29 +26,69 @@ module.exports = (_env, arg) => {
 		},
 		optimization: { splitChunks: { chunks: "all" } },
 		performance: { hints: false },
-		stats: {
-			colors: true,
-			hash: false,
-			version: false,
-			timings: true,
-			assets: true,
-			chunks: false,
-			modules: false,
-			children: false
-		},
-		plugins: [
-			new HtmlWebpackPlugin({ template: "src/index.html" })
-		]
+		stats: configureLogStats(),
+		plugins: [ new HtmlWebpackPlugin({ template: "src/index.html" }) ]
 	}
 
 	if (isProduction) {
-		webpackConfig.plugins.push(new UglifyJsPlugin({
-			uglifyOptions:{
-				compress: { drop_console: true },
-				parallel: true,
-			},
-		}));
+		const uglifyOptions = {
+			parallel: true,
+			compress: { drop_console: true }
+		};
+
+		webpackConfig.plugins.push(new UglifyJsPlugin({ uglifyOptions }));
 	}
 
 	return webpackConfig;
 };
+
+/**
+ * This applies to the main stylesheet named `global.scss`
+ */
+function configureMainStyles() {
+	return {
+		test: /global\.scss$/,
+		loader: [ "style-loader", {
+			loader: "css-loader",
+			options: { sourceMap: true }
+		}, {
+			loader: "sass-loader",
+			options: { sourceMap: true }
+		}]
+	}
+}
+
+/**
+ * This applies to all scss except `global.scss`
+ */
+function configureChildStyles() {
+	return {
+		test: /^((?!global).)*scss$/,
+		loader: [ "style-loader", {
+			loader: "css-loader",
+			options: {
+				modules: true,
+				sourceMap: true,
+			}
+		}, {
+			loader: "sass-loader",
+			options: { sourceMap: true }
+		}]
+	}
+}
+
+/**
+ * This configures webpack log content
+ */
+function configureLogStats() {
+	return {
+		colors: true,
+		hash: false,
+		version: false,
+		timings: true,
+		assets: true,
+		chunks: false,
+		modules: false,
+		children: false
+	}
+}
