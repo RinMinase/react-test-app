@@ -40,17 +40,17 @@ module.exports = {
 	devServer: {
 		open: false,
 		port: 3000,
-		historyApiFallback: true,
-		stats: {
-			colors: true,
-			hash: false,
-			version: false,
-			timings: true,
-			assets: true,
-			chunks: false,
-			modules: false,
-			children: false
-		}
+		historyApiFallback: true
+	},
+	stats: {
+		colors: true,
+		hash: false,
+		version: false,
+		timings: true,
+		assets: true,
+		chunks: false,
+		modules: false,
+		children: false
 	},
 	plugins: [
 		new HtmlWebpackPlugin({ template: "src/index.html" })
