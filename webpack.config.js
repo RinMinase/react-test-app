@@ -43,6 +43,11 @@ module.exports = {
 		port: 3000,
 		historyApiFallback: true
 	},
+	optimization: {
+		splitChunks: {
+			chunks: "all"
+		}
+	},
 	stats: {
 		colors: true,
 		hash: false,
@@ -57,4 +62,3 @@ module.exports = {
 		new HtmlWebpackPlugin({ template: "src/index.html" })
 	]
 }
-
