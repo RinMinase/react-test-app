@@ -10,7 +10,8 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.(js)$/,
-			use: "babel-loader"
+			loader: "babel-loader",
+			query: { compact: false }
 		}, {
 			/** This applies to all scss except `global.scss` */
 			test: /^((?!global).)*scss$/,
