@@ -1,8 +1,9 @@
 const path = require("path");
+const LimitChunkCountPlugin = require("webpack").optimize.LimitChunkCountPlugin;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (_env, arg) => {
-	const isProd = arg.mode === "production";
+	const isProduction = arg.mode === "production";
 
 	const webpackConfig = {
 		entry: "./src/index.js",
@@ -64,6 +65,15 @@ module.exports = (_env, arg) => {
 		plugins: [
 			new HtmlWebpackPlugin({ template: "src/index.html" })
 		]
+	}
+
+	if (isProduction) {
+		webpackConfig.optimization.splitChunks.minSize = 153600;
+		webpackConfig.optimization.splitChunks.maxSize = 512000;
+		webpackConfig.plugins.push(new LimitChunkCountPlugin({
+			maxChunks: 5,
+			minChunkSize: 153600,
+		}));
 	}
 
 	return webpackConfig;
