@@ -1,6 +1,6 @@
 const path = require("path");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
