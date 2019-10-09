@@ -85,13 +85,11 @@ function configureChildStyles() {
  */
 function configureLogStats() {
 	return {
-		colors: true,
-		hash: false,
-		version: false,
-		timings: true,
-		assets: true,
-		chunks: false,
-		modules: false,
-		children: false
+		children: false, // Disable children information
+		chunks: false,   // Disable chunk information
+		colors: true,    // Enable colored output on terminal
+		hash: false,     // Disable compilation hash
+		modules: false,  // Disable module information
+		version: false   // Disable printing of webpack version
 	}
 }
