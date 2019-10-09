@@ -47,11 +47,8 @@ module.exports = (_env, arg) => {
 			port: 3000,
 			historyApiFallback: true
 		},
-		optimization: {
-			splitChunks: {
-				chunks: "all"
-			}
-		},
+		optimization: { splitChunks: { chunks: "all" } },
+		performance: { hints: false },
 		stats: {
 			colors: true,
 			hash: false,
