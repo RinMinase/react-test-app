@@ -1,5 +1,5 @@
 const path = require("path");
-const LimitChunkCountPlugin = require("webpack").optimize.LimitChunkCountPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (_env, arg) => {
@@ -68,11 +68,11 @@ module.exports = (_env, arg) => {
 	}
 
 	if (isProduction) {
-		webpackConfig.optimization.splitChunks.minSize = 153600;
-		webpackConfig.optimization.splitChunks.maxSize = 512000;
-		webpackConfig.plugins.push(new LimitChunkCountPlugin({
-			maxChunks: 5,
-			minChunkSize: 153600,
+		webpackConfig.plugins.push(new UglifyJsPlugin({
+			uglifyOptions:{
+				compress: { drop_console: true },
+				parallel: true,
+			},
 		}));
 	}
 
