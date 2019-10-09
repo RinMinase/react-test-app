@@ -12,11 +12,15 @@ module.exports = (_env, arg) => {
 			filename: "index_bundle.js"
 		},
 		module: {
-			rules: [{
-				test: /\.(js)$/,
-				loader: "babel-loader",
-				query: { compact: false }
-			}, configureChildStyles(), configureMainStyles()]
+			rules: [
+				configureChildStyles(),
+				configureMainStyles(),
+				{
+					test: /\.(js)$/,
+					loader: "babel-loader",
+					query: { compact: false }
+				}
+			]
 		},
 		mode: "development",
 		devServer: {
