@@ -1,9 +1,11 @@
 import React, { Component, lazy } from "react";
 import ReactDOM from "react-dom";
 import { Route } from "react-router-dom";
+import { Provider } from 'react-redux';
 
-import Navbar from "./core/navbar";
+import store from './reducers';
 import Routes from "./routes";
+import Navbar from "./core/navbar";
 
 import "./global.scss";
 
@@ -35,4 +37,9 @@ function DynamicRoute(route) {
 	return(<Route path={route.path} component={Component} />);
 }
 
-ReactDOM.render(<Routes />, document.getElementById('app'));
+ReactDOM.render(
+	<Provider store={store}>
+		<Routes />
+	</Provider>,
+	document.getElementById('app')
+);
