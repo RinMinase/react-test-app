@@ -1,4 +1,4 @@
-import { GITHUB_INFO } from "./types";
+import { types } from "./actions";
 
 const initialState = {
 	githubInfo: {},
@@ -6,12 +6,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case GITHUB_INFO:
-			return {
-				...state,
-				githubInfo: action.payload,
-			}
-
+		case types.GITHUB_INFO:
+			return { ...state, githubInfo: action.payload }
 		default:
 			return state;
 	}
