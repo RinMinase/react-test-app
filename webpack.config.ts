@@ -16,14 +16,7 @@ module.exports = (_env, arg) => {
 			rules: [
 				configureMainStyles(!isProduction),
 				configureChildStyles(!isProduction),
-				{
-					test: /\.ts(x?)$/,
-					loader: "ts-loader",
-				}, {
-					enforce: "pre",
-					test: /\.js$/,
-					loader: "source-map-loader"
-				}
+				...configureTypescript(),
 			]
 		},
 		resolve: { extensions: [".ts", ".tsx", ".js"] },
@@ -59,7 +52,7 @@ module.exports = (_env, arg) => {
 };
 
 /**
- * This applies to the main stylesheet named `global.scss`
+ * This applies to the main SCSS stylesheet named `global.scss`
  */
 function configureMainStyles(sourceMap) {
 	return {
@@ -75,7 +68,7 @@ function configureMainStyles(sourceMap) {
 }
 
 /**
- * This applies to all scss except `global.scss`
+ * This applies to all SCSS stylesheets except `global.scss`
  */
 function configureChildStyles(sourceMap) {
 	return {
@@ -88,6 +81,20 @@ function configureChildStyles(sourceMap) {
 			options: { sourceMap }
 		}]
 	}
+}
+
+/**
+ * This configures TypeScript loaders
+ */
+function configureTypescript() {
+	return [{
+		test: /\.ts(x?)$/,
+		loader: "ts-loader",
+	}, {
+		enforce: "pre",
+		test: /\.js$/,
+		loader: "source-map-loader"
+	}];
 }
 
 /**
