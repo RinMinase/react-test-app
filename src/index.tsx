@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 
 import store from './reducers';
@@ -8,7 +8,7 @@ import Navbar from "./core/navbar";
 
 import "./global.scss";
 
-export default function App(props) {
+export default function App(props: any) {
 	return(
 		<div>
 			<Navbar />
@@ -19,8 +19,8 @@ export default function App(props) {
 	);
 }
 
-function Container(props) {
-	return props.routes.map((route) => <DynamicRoute key={route.path} { ...route }/>);
+function Container(props: any) {
+	return props.routes.map((route: any) => <DynamicRoute key={route.path} { ...route }/>);
 }
 
 ReactDOM.render(

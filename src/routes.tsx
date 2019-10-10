@@ -1,4 +1,5 @@
-import React, { Suspense, lazy } from "react";
+import * as React from "react";
+import { Suspense, lazy } from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -22,7 +23,7 @@ export function Routes() {
 	)
 }
 
-export function DynamicRoute(route) {
+export function DynamicRoute(route: any) {
 	if (!route.path && !route.component) return null;
 
 	const Component = lazy(() => import(`${route.component}/`));
