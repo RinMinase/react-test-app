@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
@@ -31,19 +32,24 @@ module.exports = (_env, arg) => {
 			port: 3000,
 			historyApiFallback: true
 		},
-		optimization: { splitChunks: { chunks: "all" } },
+		optimization: {
+			splitChunks: { chunks: "all" },
+			minimize: false,
+			minimizer: [],
+		},
 		performance: { hints: false },
 		stats: configureLogStats(),
 		plugins: [ new HtmlWebpackPlugin({ template: "src/index.html" }) ]
 	}
 
 	if (isProduction) {
-		const uglifyOptions = {
-			parallel: true,
-			compress: { drop_console: true }
-		};
+		const terserOptions = {
+			extractComments: false,
+			terserOptions: { output: { comments: false } }
+		}
 
-		webpackConfig.plugins.push(new UglifyJsPlugin({ uglifyOptions }));
+		webpackConfig.optimization.minimize = true;
+		webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
 	}
 
 	return webpackConfig;
