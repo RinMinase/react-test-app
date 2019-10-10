@@ -23,7 +23,6 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
     "scss-spinners": "^1.0.8"
   },
   "devDependencies": {
