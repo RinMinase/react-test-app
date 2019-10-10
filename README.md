@@ -88,8 +88,10 @@ Task automation is based on [Yarn scripts](https://yarnpkg.com/lang/en/docs/cli/
 
 ## Built with
 * <img width=20 height=20 src="https://reactjs.org/favicon.ico"> [React 16](https://reactjs.org/) - Web Framework
-* <img width=20 height=20 src="https://babeljs.io/img/favicon.png"> [Babel ES9 / ES2018 Preset](https://babeljs.io/) - Syntax and compiler
+* <img width=20 height=20 src="https://redux.js.org/img/favicon/favicon.ico"> [Redux](https://reactjs.org/) - State Container Management
+* <img width=20 height=20 src="https://www.typescriptlang.org/assets/images/icons/favicon-32x32.png"> [TypeScript](https://www.typescriptlang.org/) - Language syntax and compiler
 * <img width=20 height=20 src="https://material-ui.com/static/favicon.ico"> [Material-UI](https://material-ui.com/) - Web Layouting
 * <img width=20 height=20 src="https://sass-lang.com/favicon.ico"> [Sassy CSS (SCSS)](https://sass-lang.com/) - CSS pre-processor
 * <img width=20 height=20 src="https://webpack.js.org/bc3effb418df77da9e04825c48a58a49.ico"> [Webpack 4](https://webpack.js.org/) - Project bundler
+* <img width=20 height=20 src="https://www.netlify.com/img/global/favicon/favicon-32x32.png"> [Netlify](https://www.netlify.com/) - Continuous Deployment (CD) service
 * <img width=20 height=20 src="https://yarnpkg.com/favicon.ico"> [Yarn](https://yarnpkg.com/) - Package Manager
