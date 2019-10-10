@@ -1,7 +1,7 @@
 <h1 align="center"> ReactJS Test Application </h1>
 
 ## Introduction
-A lightweight `React` + `Redux` + `SCSS` + `Material-UI` application created without using `create-react-app` fully written in `TypeScript`.
+A lightweight `React` + `Redux` + `TypeScript` + `SCSS` + `Material-UI` application created without using `create-react-app` deployed using `Netlify`.
 
 ## Getting Started
 
