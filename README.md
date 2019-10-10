@@ -13,8 +13,8 @@ A lightweight `React` + `Redux` + `TypeScript` + `SCSS` + `Material-UI` applicat
 3. Clone the project
 
     ```
-    git clone https://github.com/RinMinase/anidb.git
-    cd anidb
+    git clone https://github.com/RinMinase/react-test-app.git
+    cd react-test-app
     ```
 
 4. Install the dependencies then run the project
