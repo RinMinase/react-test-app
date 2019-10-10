@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = (_env: any, arg: any) => {
+module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
 
 	const webpackConfig = {
@@ -52,7 +52,7 @@ module.exports = (_env: any, arg: any) => {
 /**
  * This applies to the main stylesheet named `global.scss`
  */
-function configureMainStyles(sourceMap: boolean) {
+function configureMainStyles(sourceMap) {
 	return {
 		test: /global\.scss$/,
 		loader: [{
@@ -71,7 +71,7 @@ function configureMainStyles(sourceMap: boolean) {
 /**
  * This applies to all scss except `global.scss`
  */
-function configureChildStyles(sourceMap: boolean) {
+function configureChildStyles(sourceMap) {
 	return {
 		test: /^((?!global).)*scss$/,
 		loader: [{
