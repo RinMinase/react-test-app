@@ -2,11 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-module.exports = (_env, arg) => {
+module.exports = (_env: any, arg: any) => {
 	const isProduction = arg.mode === "production";
 
 	const webpackConfig = {
-		entry: "./src/index.js",
+		entry: "./src/index.tsx",
 		output: {
 			path: path.resolve(__dirname, "dist"),
 			filename: "index_bundle.js"
@@ -16,12 +16,17 @@ module.exports = (_env, arg) => {
 				configureMainStyles(!isProduction),
 				configureChildStyles(!isProduction),
 				{
-					test: /\.(js)$/,
-					loader: "babel-loader",
-					query: { compact: false }
+					test: /\.ts(x?)$/,
+					loader: "ts-loader",
+					// query: { compact: false }
+				}, {
+					enforce: "pre",
+					test: /\.js$/,
+					loader: "source-map-loader"
 				}
 			]
 		},
+		resolve: { extensions: [".ts", ".tsx", ".js"] },
 		mode: "development",
 		devServer: {
 			port: 3000,
@@ -48,7 +53,7 @@ module.exports = (_env, arg) => {
 /**
  * This applies to the main stylesheet named `global.scss`
  */
-function configureMainStyles(sourceMap) {
+function configureMainStyles(sourceMap: boolean) {
 	return {
 		test: /global\.scss$/,
 		loader: [{
@@ -67,7 +72,7 @@ function configureMainStyles(sourceMap) {
 /**
  * This applies to all scss except `global.scss`
  */
-function configureChildStyles(sourceMap) {
+function configureChildStyles(sourceMap: boolean) {
 	return {
 		test: /^((?!global).)*scss$/,
 		loader: [{
