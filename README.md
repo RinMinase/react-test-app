@@ -1,7 +1,7 @@
 <h1 align="center"> ReactJS Test Application </h1>
 
 ## Introduction
-A lightweight ReactJS application created without using `create-react-app`.
+A lightweight ReactJS application created without using `create-react-app` written in TypeScript.
 
 ## Getting Started
 
