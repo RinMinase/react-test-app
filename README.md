@@ -3,6 +3,15 @@
 ## Introduction
 A lightweight `React` + `Redux` + `TypeScript` + `SCSS` + `Material-UI` application created without using `create-react-app` deployed using `Netlify`.
 
+### Why TypeScript?
+- TypeScript simplifies JavaScript code, making it easier to read and understand
+- Better code structuring and object-oriented programming techniques
+- Better development through compile-time checking
+- React compiled with Babel can be written in ES6+, so why not go for a step higher and use TypeScript
+- It has static type checking or type annotations, which reduces chances of undesired results from invalid types being passed or used
+- It improves the capabilites of some IDEs, improving autocomplete and code navigation features
+- It supports API documentation which may be of help on development
+
 ## Getting Started
 
 ### Running the project
