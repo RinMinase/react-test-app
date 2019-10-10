@@ -49,14 +49,16 @@ module.exports = (_env, arg) => {
  * This applies to the main stylesheet named `global.scss`
  */
 function configureMainStyles() {
+	const isProduction = arg.mode === "production";
+
 	return {
 		test: /global\.scss$/,
 		loader: [ "style-loader", {
 			loader: "css-loader",
-			options: { sourceMap: true }
+			options: { sourceMap: !isProduction }
 		}, {
 			loader: "sass-loader",
-			options: { sourceMap: true }
+			options: { sourceMap: !isProduction }
 		}]
 	}
 }
@@ -65,17 +67,19 @@ function configureMainStyles() {
  * This applies to all scss except `global.scss`
  */
 function configureChildStyles() {
+	const isProduction = arg.mode === "production";
+
 	return {
 		test: /^((?!global).)*scss$/,
 		loader: [ "style-loader", {
 			loader: "css-loader",
 			options: {
 				modules: true,
-				sourceMap: true,
+				sourceMap: !isProduction,
 			}
 		}, {
 			loader: "sass-loader",
-			options: { sourceMap: true }
+			options: { sourceMap: !isProduction }
 		}]
 	}
 }
