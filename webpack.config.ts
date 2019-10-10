@@ -18,7 +18,6 @@ module.exports = (_env: any, arg: any) => {
 				{
 					test: /\.ts(x?)$/,
 					loader: "ts-loader",
-					// query: { compact: false }
 				}, {
 					enforce: "pre",
 					test: /\.js$/,
