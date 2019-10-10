@@ -13,8 +13,8 @@ module.exports = (_env, arg) => {
 		},
 		module: {
 			rules: [
-				configureChildStyles(),
-				configureMainStyles(),
+				configureChildStyles(!isProduction),
+				configureMainStyles(!isProduction),
 				{
 					test: /\.(js)$/,
 					loader: "babel-loader",
@@ -48,17 +48,15 @@ module.exports = (_env, arg) => {
 /**
  * This applies to the main stylesheet named `global.scss`
  */
-function configureMainStyles() {
-	const isProduction = arg.mode === "production";
-
+function configureMainStyles(sourceMap) {
 	return {
 		test: /global\.scss$/,
 		loader: [ "style-loader", {
 			loader: "css-loader",
-			options: { sourceMap: !isProduction }
+			options: { sourceMap }
 		}, {
 			loader: "sass-loader",
-			options: { sourceMap: !isProduction }
+			options: { sourceMap }
 		}]
 	}
 }
@@ -66,20 +64,18 @@ function configureMainStyles() {
 /**
  * This applies to all scss except `global.scss`
  */
-function configureChildStyles() {
-	const isProduction = arg.mode === "production";
-
+function configureChildStyles(sourceMap) {
 	return {
 		test: /^((?!global).)*scss$/,
 		loader: [ "style-loader", {
 			loader: "css-loader",
 			options: {
 				modules: true,
-				sourceMap: !isProduction,
+				sourceMap,
 			}
 		}, {
 			loader: "sass-loader",
-			options: { sourceMap: !isProduction }
+			options: { sourceMap }
 		}]
 	}
 }
