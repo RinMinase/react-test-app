@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (_env, arg) => {
@@ -38,7 +39,10 @@ module.exports = (_env, arg) => {
 		},
 		performance: { hints: false },
 		stats: configureLogStats(),
-		plugins: [ new HtmlWebpackPlugin({ template: "src/index.html" }) ]
+		plugins: [
+			new HtmlWebpackPlugin({ template: "src/index.html" }),
+			new MiniCssExtractPlugin({ filename: "[name].css" })
+		]
 	}
 
 	if (isProduction) {
@@ -60,10 +64,7 @@ module.exports = (_env, arg) => {
 function configureMainStyles(sourceMap) {
 	return {
 		test: /global\.scss$/,
-		loader: [{
-			loader: "style-loader",
-			options: { insert: "body" }
-		}, {
+		loader: [MiniCssExtractPlugin.loader, {
 			loader: "css-loader",
 			options: { sourceMap }
 		}, {
@@ -79,15 +80,9 @@ function configureMainStyles(sourceMap) {
 function configureChildStyles(sourceMap) {
 	return {
 		test: /^((?!global).)*scss$/,
-		loader: [{
-			loader: "style-loader",
-			options: { insert: "body" }
-		}, {
+		loader: [MiniCssExtractPlugin.loader, {
 			loader: "css-loader",
-			options: {
-				modules: true,
-				sourceMap,
-			}
+			options: { modules: true, sourceMap }
 		}, {
 			loader: "sass-loader",
 			options: { sourceMap }
