@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --progress true",
     "post-deploy": "echo /* /index.html 200>dist/_redirects"
   },
   "dependencies": {
