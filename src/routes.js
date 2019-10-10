@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { Router } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './';
@@ -12,7 +12,7 @@ const routes = [{
 	component: "./login",
 }];
 
-export default function Routes() {
+export function Routes() {
 	return(
 		<Router history={createBrowserHistory()}>
 			<Suspense fallback={<div className="spinner round"></div>}>
@@ -20,4 +20,12 @@ export default function Routes() {
 			</Suspense>
 		</Router>
 	)
+}
+
+export function DynamicRoute(route) {
+	if (!route.path && !route.component) return null;
+
+	const Component = lazy(() => import(`${route.component}/`));
+
+	return(<Route path={route.path} component={Component} />);
 }

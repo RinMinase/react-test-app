@@ -1,10 +1,9 @@
-import React, { Component, lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 import store from './reducers';
-import Routes from "./routes";
+import { Routes, DynamicRoute } from "./routes";
 import Navbar from "./core/navbar";
 
 import "./global.scss";
@@ -22,14 +21,6 @@ export default function App(props) {
 
 function Container(props) {
 	return props.routes.map((route) => <DynamicRoute key={route.path} { ...route }/>);
-}
-
-function DynamicRoute(route) {
-	if (!route.path && !route.component) return null;
-
-	const Component = lazy(() => import(`${route.component}/`));
-
-	return(<Route path={route.path} component={Component} />);
 }
 
 ReactDOM.render(
