@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 
-import store from './reducers';
+import store from "./reducers";
 import { Routes, DynamicRoute } from "./routes";
 import Navbar from "./core/navbar";
 
@@ -27,5 +27,5 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Routes />
 	</Provider>,
-	document.getElementById('app')
+	document.getElementById("app")
 );

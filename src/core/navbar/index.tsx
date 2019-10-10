@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
-import MenuIcon from "@material-ui/icons/Menu"
+import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
 import * as style from "./index.scss";
 

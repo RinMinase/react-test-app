@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import App from './';
+import App from "./";
 
 const routes = [{
 	path: "/home",
@@ -20,7 +20,7 @@ export function Routes() {
 				<App routes={routes} />
 			</Suspense>
 		</Router>
-	)
+	);
 }
 
 export function DynamicRoute(route: any) {
