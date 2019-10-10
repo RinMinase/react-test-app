@@ -35,16 +35,27 @@ A lightweight `React` + `Redux` + `TypeScript` + `SCSS` + `Material-UI` applicat
 
 ### Project Structure
     .
-    ├── assets/                    # Project assets
-    ├── src/                       # Project source code
-    │   ├── core/                  # Core and reusable components
-    │   ├── <component>/           # Project component
-    │   ├── global.scss            # Main stylesheet
-    │   ├── index.html             # Main template file
-    │   ├── index.js               # Main scripts
-    │   └── reducers.js            # Root reducer file
-    │   └── routes.js              # Route definitions
-    └── webpack.config.js          # Webpack configuration file
+    ├── assets/                         # Project assets
+    ├── src/                            # Project source code
+    │   ├── core/                       # Core components
+    │   ├── <component>/                # Project component
+    │   ├── global.d.ts                 # Project type definitions
+    │   ├── global.scss                 # Main stylesheet
+    │   ├── index.html                  # Main template file
+    │   ├── index.tsx                   # Main scripts
+    │   ├── reducers.ts                 # Root reducer file
+    │   └── routes.tsx                  # Route definitions
+    ├── tsconfig.json                   # TypeScript configuration file
+    └── webpack.config.ts               # Webpack configuration file
+
+#### Component Structure
+    <component>/
+     │   └── components/                # Sub-components folder
+     │       └── <component name>.tsx   # Sub-component
+     ├── actions.tsx                    # Component actions and types
+     ├── index.scss                     # Component stylesheet
+     ├── index.tsx                      # Component entry file
+     └── reducers.tsx                   # Component reducers
 
 #### Display Structure
      ___________________
