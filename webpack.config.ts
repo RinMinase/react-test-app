@@ -84,12 +84,27 @@ function configureChildStyles(sourceMap) {
 }
 
 /**
- * This configures TypeScript loaders
+ * This configures TypeScript loaders and linters
  */
 function configureTypescript() {
+	const lintingRules = {
+		extends: ["tslint:latest"],
+		rules: {
+			indent: [ true, "tabs", 2 ],
+			quotemark: [ true, "double", "jsx-double" ]
+		}
+	}
+
 	return [{
 		test: /\.ts(x?)$/,
-		loader: "ts-loader",
+		loader: ["ts-loader", {
+			loader: "tslint-loader",
+			options: {
+				configuration: lintingRules,
+				formatter: "grouped",
+				formattersDirectory: 'node_modules/custom-tslint-formatters/formatters/',
+			}
+		}]
 	}, {
 		enforce: "pre",
 		test: /\.js$/,
