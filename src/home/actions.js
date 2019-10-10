@@ -6,18 +6,7 @@ export function getGithubInfo() {
 	return (dispatch) => {
 		axios.get("https://api.github.com/users/torvalds")
 			.then((response) => {
-				dispatch(getInfo(response));
+				dispatch({ type: GITHUB_INFO, payload: response });
 			})
 	}
 }
-
-function getInfo(data) {
-	return {
-		type: GITHUB_INFO,
-		payload: data
-	}
-}
-
-
-
-
