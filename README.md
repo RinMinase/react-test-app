@@ -42,6 +42,7 @@ A lightweight ReactJS application created without using `create-react-app`.
     │   ├── global.scss            # Main stylesheet
     │   ├── index.html             # Main template file
     │   ├── index.js               # Main scripts
+    │   └── reducers.js            # Root reducer file
     │   └── routes.js              # Route definitions
     └── webpack.config.js          # Webpack configuration file
 
