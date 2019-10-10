@@ -92,10 +92,10 @@ function configureChildStyles(sourceMap) {
  */
 function configureTypescript() {
 	const lintingRules = {
-		extends: ["tslint:latest"],
 		rules: {
 			indent: [ true, "tabs", 2 ],
-			quotemark: [ true, "double", "jsx-double" ]
+			quotemark: [ true, "double", "jsx-double" ],
+			semicolon: [ true, "always" ]
 		}
 	}
 
