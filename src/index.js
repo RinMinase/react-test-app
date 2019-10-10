@@ -9,20 +9,15 @@ import Navbar from "./core/navbar";
 
 import "./global.scss";
 
-export default class App extends Component {
-
-	constructor(props) { super(props); }
-
-	render () {
-		return(
-			<div>
-				<Navbar />
-				<div className="container">
-					<Container routes={this.props.routes} />
-				</div>
+export default function App(props) {
+	return(
+		<div>
+			<Navbar />
+			<div className="container">
+				<Container routes={props.routes} />
 			</div>
-		);
-	}
+		</div>
+	);
 }
 
 function Container(props) {
