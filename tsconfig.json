@@ -3,8 +3,11 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
+    "esModuleInterop": true,
+    "lib": ["es5", "es2015", "es2016", "dom"],
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "target": "es5",
     "jsx": "react"
   }
