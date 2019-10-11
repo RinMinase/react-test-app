@@ -1,8 +1,10 @@
 const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (_env, arg) => {
@@ -50,6 +52,7 @@ module.exports = (_env, arg) => {
 		webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
 
 		webpackConfig.plugins.push(new CleanWebpackPlugin());
+		webpackConfig.plugins.push(new CopyPlugin([ { from: "assets", to: "assets" } ]));
 	}
 
 	return webpackConfig;
