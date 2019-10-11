@@ -29,11 +29,7 @@ module.exports = (_env, arg) => {
 			port: 3000,
 			historyApiFallback: true
 		},
-		optimization: {
-			splitChunks: { chunks: "all" },
-			minimize: false,
-			minimizer: [],
-		},
+		optimization: { splitChunks: { chunks: "all" } },
 		performance: { hints: false },
 		stats: configureLogStats(),
 		plugins: [
@@ -42,18 +38,7 @@ module.exports = (_env, arg) => {
 		]
 	}
 
-	if (isProduction) {
-		const terserOptions = {
-			extractComments: false,
-			terserOptions: { output: { comments: false } }
-		}
-
-		webpackConfig.optimization.minimize = true;
-		webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
-
-		webpackConfig.plugins.push(new CleanWebpackPlugin());
-		webpackConfig.plugins.push(new CopyPlugin([ { from: "assets", to: "assets" } ]));
-	}
+	if (isProduction) { configureProduction(webpackConfig); }
 
 	return webpackConfig;
 };
@@ -131,4 +116,20 @@ function configureLogStats() {
 		modules: false,  // Disable module information
 		version: false   // Disable printing of webpack version
 	}
+}
+
+/**
+ * This configures production settings and plugins
+ */
+function configureProduction(webpackConfig) {
+	const terserOptions = {
+		extractComments: false,
+		terserOptions: { output: { comments: false } }
+	}
+
+	webpackConfig.optimization.minimize = true;
+	webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
+
+	webpackConfig.plugins.push(new CleanWebpackPlugin());
+	webpackConfig.plugins.push(new CopyPlugin([ { from: "assets", to: "assets" } ]));
 }
