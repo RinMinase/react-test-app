@@ -128,6 +128,8 @@ function configureProduction(webpackConfig) {
 	}
 
 	webpackConfig.optimization.minimize = true;
+
+	if (!webpackConfig.optimization.minimizer) { webpackConfig.optimization.minimizer = []; }
 	webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
 
 	webpackConfig.plugins.push(new CleanWebpackPlugin());
