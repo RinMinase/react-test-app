@@ -9,6 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
+	const KB = 1024;
 
 	const webpackConfig = {
 		entry: "./src/index.tsx",
@@ -30,7 +31,10 @@ module.exports = (_env, arg) => {
 			historyApiFallback: true
 		},
 		optimization: { splitChunks: { chunks: "all" } },
-		performance: { hints: false },
+		performance: {
+			maxEntrypointSize: 320 * KB,
+			maxAssetSize: 300 * KB
+		},
 		stats: configureLogStats(),
 		plugins: [
 			new HtmlWebpackPlugin({ template: "src/index.html" }),
