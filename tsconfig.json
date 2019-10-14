@@ -1,8 +1,6 @@
 {
   "include": [ "./src/**/*.ts", "./src/**/*.tsx" ],
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
     "esModuleInterop": true,
     "lib": ["es5", "es2015", "es2016", "dom"],
     "experimentalDecorators": true,
