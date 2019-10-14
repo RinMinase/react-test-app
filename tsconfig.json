@@ -2,11 +2,11 @@
   "include": [ "./src/**/*.ts", "./src/**/*.tsx" ],
   "compilerOptions": {
     "esModuleInterop": true,
-    "lib": ["es5", "es2015", "es2016", "dom"],
     "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["es5", "es2015", "es2016", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "es5",
-    "jsx": "react"
+    "target": "es5"
   }
 }
