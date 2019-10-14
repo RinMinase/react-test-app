@@ -1,5 +1,4 @@
-import * as React from "react";
-import { Suspense, lazy } from "react";
+import { default as React, Suspense, lazy } from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 

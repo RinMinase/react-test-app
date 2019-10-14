@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import * as style from "./index.scss";
+import style from "./index.scss";
 
 export default function Navbar() {
 	return(
