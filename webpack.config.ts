@@ -15,7 +15,7 @@ module.exports = (_env, arg) => {
 		entry: "./src/index.tsx",
 		output: {
 			path: path.resolve(__dirname, "dist"),
-			filename: "index_bundle.js"
+			filename: "[name].bundle.[contenthash:5].js"
 		},
 		module: {
 			rules: [
@@ -32,7 +32,7 @@ module.exports = (_env, arg) => {
 		stats: configureLogStats(),
 		plugins: [
 			new HtmlWebpackPlugin({ template: "src/index.html" }),
-			new MiniCssExtractPlugin({ filename: "[name].css" })
+			new MiniCssExtractPlugin({ filename: "[name].bundle.[contenthash:5].css" })
 		]
 	}
 
