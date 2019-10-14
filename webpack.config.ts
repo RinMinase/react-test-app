@@ -28,7 +28,7 @@ module.exports = (_env, arg) => {
 			port: 3000,
 			historyApiFallback: true
 		},
-		...configureBundleProcess(),
+		...configureBundleProcess(isProduction),
 		stats: configureLogStats(),
 		plugins: [
 			new HtmlWebpackPlugin({ template: "src/index.html" }),
@@ -105,17 +105,24 @@ function configureTypescript() {
 /**
  * This configures files resolution and bundle options
  */
-function configureBundleProcess() {
+function configureBundleProcess(isProduction) {
 	const KB = 1024;
-
-	return {
+	const bundleConfig = {
 		resolve: { extensions: [".ts", ".tsx", ".js"] },
 		optimization: { splitChunks: { chunks: "all" } },
 		performance: {
+			hints: (isProduction) ? "warning" : false,
 			maxEntrypointSize: 320 * KB,
-			maxAssetSize: 300 * KB
+			maxAssetSize: 300 * KB,
+			assetFilter: (file) => !(/\.map$/.test(file))
 		},
 	}
+
+	if (!isProduction) {
+		bundleConfig.performance.assetFilter = (file) => !(/\.map$|vendors/.test(file));
+	}
+
+	return bundleConfig;
 }
 
 /**
