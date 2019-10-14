@@ -143,16 +143,10 @@ function configureLogStats() {
  * This configures production settings and plugins
  */
 function configureProduction(webpackConfig) {
-	const terserOptions = {
+	webpackConfig.plugins.push(new TerserPlugin({
 		extractComments: false,
 		terserOptions: { output: { comments: false } }
-	}
-
-	webpackConfig.optimization.minimize = true;
-
-	if (!webpackConfig.optimization.minimizer) { webpackConfig.optimization.minimizer = []; }
-	webpackConfig.optimization.minimizer.push(new TerserPlugin(terserOptions));
-
+	}));
 	webpackConfig.plugins.push(new CleanWebpackPlugin());
 	webpackConfig.plugins.push(new CopyPlugin([ { from: "assets", to: "assets" } ]));
 }
