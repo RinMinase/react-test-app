@@ -9,9 +9,9 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
-	const KB = 1024;
 
 	const webpackConfig = {
+		mode: "development",
 		entry: "./src/index.tsx",
 		output: {
 			path: path.resolve(__dirname, "dist"),
@@ -24,17 +24,11 @@ module.exports = (_env, arg) => {
 				...configureTypescript(),
 			]
 		},
-		resolve: { extensions: [".ts", ".tsx", ".js"] },
-		mode: "development",
 		devServer: {
 			port: 3000,
 			historyApiFallback: true
 		},
-		optimization: { splitChunks: { chunks: "all" } },
-		performance: {
-			maxEntrypointSize: 320 * KB,
-			maxAssetSize: 300 * KB
-		},
+		...configureBundleProcess(),
 		stats: configureLogStats(),
 		plugins: [
 			new HtmlWebpackPlugin({ template: "src/index.html" }),
@@ -106,6 +100,22 @@ function configureTypescript() {
 		test: /\.js$/,
 		loader: "source-map-loader"
 	}];
+}
+
+/**
+ * This configures files resolution and bundle options
+ */
+function configureBundleProcess() {
+	const KB = 1024;
+
+	return {
+		resolve: { extensions: [".ts", ".tsx", ".js"] },
+		optimization: { splitChunks: { chunks: "all" } },
+		performance: {
+			maxEntrypointSize: 320 * KB,
+			maxAssetSize: 300 * KB
+		},
+	}
 }
 
 /**
