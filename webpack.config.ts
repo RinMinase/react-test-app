@@ -43,6 +43,9 @@ module.exports = (_env, arg) => {
 
 /**
  * This applies to the main SCSS stylesheet named `global.scss`
+ * since `globals.scss` is imported without the `modular` argument
+ *
+ * @param {boolean} sourceMap generates a source map for the stylesheets
  */
 function configureMainStyles(sourceMap) {
 	return {
@@ -59,6 +62,8 @@ function configureMainStyles(sourceMap) {
 
 /**
  * This applies to all SCSS stylesheets except `global.scss`
+ *
+ * @param {boolean} sourceMap generates a source map for the stylesheets
  */
 function configureChildStyles(sourceMap) {
 	return {
@@ -104,6 +109,8 @@ function configureTypescript() {
 
 /**
  * This configures files resolution and bundle options
+ *
+ * @param {boolean} isProduction removes checking of vendors size when not on production
  */
 function configureBundleProcess(isProduction) {
 	const KB = 1024;
@@ -141,6 +148,8 @@ function configureLogStats() {
 
 /**
  * This configures production settings and plugins
+ *
+ * @param {object} webpackConfig webpack configuration object
  */
 function configureProduction(webpackConfig) {
 	webpackConfig.plugins.push(new TerserPlugin({
