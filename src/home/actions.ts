@@ -9,7 +9,6 @@ export function getCommits() {
 	};
 }
 
-
 export function getUser() {
 	return (dispatch) => {
 		axios.get("https://api.github.com/users/torvalds")
