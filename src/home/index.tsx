@@ -1,4 +1,4 @@
-import { default as React, useEffect, useState } from "react";
+import { default as React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import style from "./index.scss";
