@@ -5,7 +5,7 @@
         <img alt="David-DM" src="https://img.shields.io/david/RinMinase/react-test-app?style=for-the-badge">
     </a>
     <a href="https://david-dm.org/RinMinase/react-test-app">
-        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-test-app?label=dev%20dependencies&style=for-the-badge">
+        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-test-app?style=for-the-badge">
     </a>
 </p>
 <p align="center">
