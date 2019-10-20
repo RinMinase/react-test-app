@@ -11,7 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --mode production --progress true",
-    "build-no-progress": "webpack --mode production",
+    "deploy": "webpack --mode production && npm run post-deploy",
     "post-deploy": "echo /* /index.html 200>dist/_redirects"
   },
   "dependencies": {
