@@ -1,15 +1,15 @@
 <h1 align="center"> ReactJS Test Application </h1>
 
 <p align="center">
-    <a href="https://david-dm.org/RinMinase/react-test-app">
-        <img alt="David-DM" src="https://img.shields.io/david/RinMinase/react-test-app?style=for-the-badge">
+    <a href="https://david-dm.org/RinMinase/react-typescript">
+        <img alt="David-DM" src="https://img.shields.io/david/RinMinase/react-typescript?style=for-the-badge">
     </a>
-    <a href="https://david-dm.org/RinMinase/react-test-app">
-        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-test-app?style=for-the-badge">
+    <a href="https://david-dm.org/RinMinase/react-typescript">
+        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-typescript?style=for-the-badge">
     </a>
 </p>
 <p align="center">
-    <a href="https://app.netlify.com/sites/react-test-app/deploys">
+    <a href="https://app.netlify.com/sites/react-typescript/deploys">
         <img alt="Netlify-Status" src="https://img.shields.io/netlify/88317caa-b87d-446d-8cbc-ce3fdda1d0ac?logo=netlify&style=for-the-badge">
     </a>
 </p>
