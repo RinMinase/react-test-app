@@ -36,8 +36,8 @@ A lightweight `React` + `Redux` + `TypeScript` + `SCSS` + `Material-UI` applicat
 3. Clone the project
 
     ```
-    git clone https://github.com/RinMinase/react-test-app.git
-    cd react-test-app
+    git clone https://github.com/RinMinase/react-typescript.git
+    cd react-typescript
     ```
 
 4. Install the dependencies then run the project
