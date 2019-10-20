@@ -157,5 +157,8 @@ function configureProduction(webpackConfig) {
 		terserOptions: { output: { comments: false } }
 	}));
 	webpackConfig.plugins.push(new CleanWebpackPlugin());
-	webpackConfig.plugins.push(new CopyPlugin([ { from: "assets", to: "assets" } ]));
+	webpackConfig.plugins.push(new CopyPlugin([
+		{ from: "assets", to: "assets", ignore: ["_redirects"], },
+		{ from: "assets/_redirects", to: "_redirects", toType: "file" }
+	]));
 }
