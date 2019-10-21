@@ -119,6 +119,7 @@ Task automation is based on [Yarn scripts](https://yarnpkg.com/lang/en/docs/cli/
 | ------------------- | -------------------------------------------------------------------------------------- |
 | `yarn start`        | Run **development server** on `http://localhost:3000/` with file watching on changes   |
 | `yarn build`        | Build production code                                                                  |
+| `yarn deploy`       | Build netlify deployment code                                                          |
 
 ## Built with
 * <img width=20 height=20 src="https://reactjs.org/favicon.ico"> [React 16](https://reactjs.org/) - Web Framework
