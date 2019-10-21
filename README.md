@@ -5,7 +5,7 @@
         <img alt="David-DM" src="https://img.shields.io/david/RinMinase/react-typescript?style=for-the-badge">
     </a>
     <a href="https://david-dm.org/RinMinase/react-typescript">
-        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-typescript?style=for-the-badge">
+        <img alt="David-DM" src="https://img.shields.io/david/dev/RinMinase/react-typescript?label=dev%20dependencies&style=for-the-badge">
     </a>
 </p>
 <p align="center">
