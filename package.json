@@ -24,7 +24,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
-    "scss-spinners": "^1.1.13"
+    "scss-spinners": "^1.1.14"
   },
   "devDependencies": {
     "@types/react-dom": "^16.9.4",
