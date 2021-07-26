@@ -4,9 +4,14 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "lib": ["es5", "es2015", "es2016", "dom"],
-    "module": "esnext",
+    "lib": ["esnext", "dom"],
     "moduleResolution": "node",
-    "target": "es5"
+    "target": "es5",
+    
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
   }
 }
