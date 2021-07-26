@@ -1,7 +1,5 @@
 import path from "path";
-// import { Configuration } from "webpack";
-import { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
+import { Configuration } from "webpack";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -9,10 +7,6 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
-
-interface Configuration extends WebpackConfiguration {
-	devServer?: WebpackDevServerConfiguration;
-}
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
