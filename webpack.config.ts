@@ -1,16 +1,23 @@
-const path = require("path");
+import path from "path";
+// import { Configuration } from "webpack";
+import { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+
+interface Configuration extends WebpackConfiguration {
+	devServer?: WebpackDevServerConfiguration;
+}
 
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
 
-	const webpackConfig = {
+	const webpackConfig:Configuration = {
 		mode: "development",
 		entry: "./src/index.tsx",
 		output: {
@@ -50,7 +57,7 @@ module.exports = (_env, arg) => {
 function configureMainStyles(sourceMap) {
 	return {
 		test: /global\.scss$/,
-		loader: [MiniCssExtractPlugin.loader, {
+		use: [MiniCssExtractPlugin.loader, {
 			loader: "css-loader",
 			options: { sourceMap }
 		}, {
@@ -68,7 +75,7 @@ function configureMainStyles(sourceMap) {
 function configureChildStyles(sourceMap) {
 	return {
 		test: /^((?!global).)*scss$/,
-		loader: [MiniCssExtractPlugin.loader, {
+		use: [MiniCssExtractPlugin.loader, {
 			loader: "css-loader",
 			options: { modules: true, sourceMap }
 		}, {
@@ -93,7 +100,7 @@ function configureTypescript() {
 
 	return [{
 		test: /\.ts(x?)$/,
-		loader: ["ts-loader", {
+		use: ["ts-loader", {
 			loader: "tslint-loader",
 			options: {
 				configuration: lintingRules,
@@ -104,7 +111,7 @@ function configureTypescript() {
 	}, {
 		enforce: "pre",
 		test: /\.js$/,
-		loader: "source-map-loader"
+		use: [ "source-map-loader" ]
 	}];
 }
 
@@ -117,17 +124,17 @@ function configureBundleProcess(isProduction) {
 	const KB = 1024;
 	const bundleConfig = {
 		resolve: { extensions: [".ts", ".tsx", ".js"] },
-		optimization: { splitChunks: { chunks: "all" } },
-		performance: {
-			hints: (isProduction) ? "warning" : false,
-			maxEntrypointSize: 320 * KB,
-			maxAssetSize: 300 * KB,
-			assetFilter: (file) => !(/\.map$/.test(file))
-		},
+		// optimization: { splitChunks: { chunks: "all" } },
+		// performance: {
+		// 	hints: (isProduction) ? "warning" : false,
+		// 	maxEntrypointSize: 320 * KB,
+		// 	maxAssetSize: 300 * KB,
+		// 	assetFilter: (file) => !(/\.map$/.test(file))
+		// },
 	}
 
 	if (!isProduction) {
-		bundleConfig.performance.assetFilter = (file) => !(/\.map$|vendors/.test(file));
+		// bundleConfig.performance.assetFilter = (file) => !(/\.map$|vendors/.test(file));
 	}
 
 	return bundleConfig;
