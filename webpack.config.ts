@@ -116,19 +116,26 @@ function configureTypescript() {
  */
 function configureBundleProcess(isProduction) {
 	const KB = 1024;
-	const bundleConfig = {
+	const bundleConfig:Configuration = {
 		resolve: { extensions: [".ts", ".tsx", ".js"] },
-		// optimization: { splitChunks: { chunks: "all" } },
-		// performance: {
-		// 	hints: (isProduction) ? "warning" : false,
-		// 	maxEntrypointSize: 320 * KB,
-		// 	maxAssetSize: 300 * KB,
-		// 	assetFilter: (file) => !(/\.map$/.test(file))
-		// },
-	}
-
-	if (!isProduction) {
-		// bundleConfig.performance.assetFilter = (file) => !(/\.map$|vendors/.test(file));
+		optimization: {
+			splitChunks: {
+				chunks: "all",
+				minSize: {
+					javascript: 30 * KB,
+				}
+			},
+		},
+		performance: {
+			hints: (isProduction) ? "warning" : false,
+			// maxEntrypointSize: 320 * KB,
+			maxEntrypointSize: 600 * KB,
+			maxAssetSize: 300 * KB,
+			assetFilter:
+				(isProduction) ?
+					(file: any) => !(/\.map$|vendors/.test(file)) :
+					(file: any) => !(/\.map$/.test(file))
+		},
 	}
 
 	return bundleConfig;
