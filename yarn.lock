@@ -4934,10 +4934,10 @@ schema-utils@^2.6.6, schema-utils@^2.7.0:
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
-scss-spinners@^1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/scss-spinners/-/scss-spinners-1.2.9.tgz#d251fcdea2c708fa71b9b1311508de13af7f680f"
-  integrity sha512-aIGtkpKgUXBQ+TJ6HIqh1HTCauVmgXQjTl3mBuWhj+r8BZThDLd0RD6cNmDEU3/InuzoC9ukkBc638dxKA1ihQ==
+scss-spinners@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/scss-spinners/-/scss-spinners-2.0.4.tgz#15ad07528565750c6a8e33a73a6d574026677556"
+  integrity sha512-eW8eEYoaXnz/WNV9/+MtcRhyYiZcOKKmy8a7eXEgNUysNx3DtDngjg3Kp5iIlb1Wv0a1+RO9+34QUybJrKH/mA==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
