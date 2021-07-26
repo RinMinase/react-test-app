@@ -31,7 +31,7 @@
     "@types/react-redux": "^7.1.18",
     "@types/react-router-dom": "^5.1.8",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^6.0.3",
+    "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^3.6.0",
     "custom-tslint-formatters": "^2.4.0",
     "html-webpack-plugin": "^4.3.0",
