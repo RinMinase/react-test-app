@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React, { StrictMode } from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import store from "./reducers";
@@ -24,8 +24,10 @@ function Container(props: any) {
 }
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Routes />
-	</Provider>,
+	<StrictMode>
+		<Provider store={store}>
+			<Routes />
+		</Provider>
+	</StrictMode>,
 	document.getElementById("app")
 );
