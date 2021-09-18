@@ -15,14 +15,14 @@ const routes = [{
 }];
 
 function renderLoader() {
-	return(
+	return (
 		<>
 			<Navbar />
 			<Grid
 				container
 				spacing={0}
 				direction="column"
-				justify="center"
+				justifyContent="center"
 				alignItems="center"
 				style={{ minHeight: "100vh" }}>
 				<div className="spinner round"></div>
@@ -32,7 +32,7 @@ function renderLoader() {
 }
 
 export function Routes() {
-	return(
+	return (
 		<Router history={createBrowserHistory()}>
 			<Suspense fallback={renderLoader()}>
 				<App routes={routes} />
@@ -46,5 +46,5 @@ export function DynamicRoute(route: any) {
 
 	const Component = lazy(() => import(`${route.component}/`));
 
-	return(<Route path={route.path} component={Component} />);
+	return (<Route path={route.path} component={Component} />);
 }
