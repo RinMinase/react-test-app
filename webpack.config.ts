@@ -11,7 +11,7 @@ import TerserPlugin from "terser-webpack-plugin";
 module.exports = (_env, arg) => {
 	const isProduction = arg.mode === "production";
 
-	const webpackConfig:Configuration = {
+	const webpackConfig: Configuration = {
 		mode: "development",
 		entry: "./src/index.tsx",
 		output: {
@@ -32,7 +32,10 @@ module.exports = (_env, arg) => {
 		...configureBundleProcess(isProduction),
 		stats: configureLogStats(),
 		plugins: [
-			new HtmlWebpackPlugin({ template: "src/index.html" }),
+			new HtmlWebpackPlugin({
+				template: "src/index.html",
+				favicon: "assets/favicon.ico",
+			}),
 			new MiniCssExtractPlugin({ filename: "[name].bundle.[contenthash:5].css" })
 		]
 	}
@@ -85,10 +88,10 @@ function configureChildStyles(sourceMap) {
 function configureTypescript() {
 	const lintingRules = {
 		rules: {
-			indent: [ true, "tabs", 2 ],
-			quotemark: [ true, "double", "jsx-double" ],
-			semicolon: [ true, "always" ],
-			"max-line-length": [ true, 100 ]
+			indent: [true, "tabs", 2],
+			quotemark: [true, "double", "jsx-double"],
+			semicolon: [true, "always"],
+			"max-line-length": [true, 100]
 		}
 	}
 
@@ -105,7 +108,7 @@ function configureTypescript() {
 	}, {
 		enforce: "pre",
 		test: /\.js$/,
-		use: [ "source-map-loader" ]
+		use: ["source-map-loader"]
 	}];
 }
 
@@ -116,7 +119,7 @@ function configureTypescript() {
  */
 function configureBundleProcess(isProduction) {
 	const KB = 1024;
-	const bundleConfig:Configuration = {
+	const bundleConfig: Configuration = {
 		resolve: { extensions: [".ts", ".tsx", ".js"] },
 		optimization: {
 			splitChunks: {
@@ -168,7 +171,7 @@ function configureProduction(webpackConfig) {
 	webpackConfig.plugins.push(new CleanWebpackPlugin());
 	webpackConfig.plugins.push(new CopyPlugin({
 		patterns: [
-			{ from: "assets", to: "assets", globOptions: { ignore: ["_redirects"] }},
+			{ from: "assets", to: "assets", globOptions: { ignore: ["_redirects"] } },
 			{ from: "assets/_redirects", to: "_redirects", toType: "file" }
 		]
 	}));
